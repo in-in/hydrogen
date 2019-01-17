@@ -1,8 +1,0 @@
-.TodoItem {
-  padding: 1em;
-  background-color: crimson;
-  color: snow;
-}
-.TodoItem--completed {
-  background-color: forestgreen;
-}

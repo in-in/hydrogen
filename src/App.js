@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Todos from './components/Todos';
 import 'nes.css/css/nes.css';
+import './App.css';
 
 class App extends Component {
   state = {
@@ -27,10 +28,10 @@ class App extends Component {
     console.log(this.state.todos);
 
     return (
-      <div className="App">
-        <h1>App1</h1>
+      <section className="nes-container with-title">
+        <h2 className="title">ToDo List</h2>
         <Todos todos={this.state.todos} />
-      </div>
+      </section>
     );
   }
 }
