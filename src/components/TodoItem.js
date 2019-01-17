@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './TodoItem.css';
 
-export class TodoItem extends Component {
+export default class TodoItem extends Component {
   render() {
-    return <p>{this.props.todo.title}</p>;
+    let className = 'TodoItem';
+    if (this.props.todo.completed) {
+      className += ' TodoItem--completed';
+    }
+
+    return <p className={className}>{this.props.todo.title}</p>;
   }
 }
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired
 };
-
-export default TodoItem;
