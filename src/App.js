@@ -14,7 +14,7 @@ class App extends Component {
       {
         id: 2,
         title: 'Dinner with wife',
-        completed: true
+        completed: false
       },
       {
         id: 3,
@@ -24,13 +24,22 @@ class App extends Component {
     ]
   };
 
-  render() {
-    console.log(this.state.todos);
+  markComplete = id => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      })
+    });
+  };
 
+  render() {
     return (
       <section className="nes-container with-title">
         <h2 className="title">ToDo List</h2>
-        <Todos todos={this.state.todos} />
+        <Todos todos={this.state.todos} markComplete={this.markComplete} />
       </section>
     );
   }

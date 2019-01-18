@@ -3,12 +3,26 @@ import PropTypes from 'prop-types';
 
 export default class TodoItem extends Component {
   render() {
-    let className = 'TodoItem';
-    if (this.props.todo.completed) {
-      className += ' TodoItem--completed';
+    const { id, title, completed } = this.props.todo;
+
+    let className = 'nes-container is-rounded';
+    if (completed) {
+      className += ' is-dark';
     }
 
-    return <p className={className}>{this.props.todo.title}</p>;
+    return (
+      <div className={className}>
+        <label>
+          <input
+            type="checkbox"
+            className="nes-checkbox"
+            onChange={this.props.markComplete.bind(this, id)}
+          />
+          <span />
+        </label>
+        <span>{title}</span>
+      </div>
+    );
   }
 }
 
