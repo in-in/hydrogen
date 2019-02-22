@@ -15,7 +15,7 @@ export default class TodoItem extends Component {
         <label>
           <input
             type="checkbox"
-            className="nes-checkbox"
+            className={completed ? 'nes-checkbox is-dark' : 'nes-checkbox'}
             onChange={this.props.markComplete.bind(this, id)}
           />
           <span />
