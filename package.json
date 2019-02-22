@@ -23,6 +23,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "nanoid": "^2.0.1",
     "nes.css": "^2.0.0"
   }
 }

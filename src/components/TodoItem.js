@@ -5,7 +5,7 @@ export default class TodoItem extends Component {
   render() {
     const { id, title, completed } = this.props.todo;
 
-    let className = 'nes-container is-rounded';
+    let className = 'nes-container todo-item is-rounded';
     if (completed) {
       className += ' is-dark';
     }
@@ -18,9 +18,15 @@ export default class TodoItem extends Component {
             className={completed ? 'nes-checkbox is-dark' : 'nes-checkbox'}
             onChange={this.props.markComplete.bind(this, id)}
           />
-          <span />
+          <span>{title}</span>
         </label>
-        <span>{title}</span>
+        <button
+          onClick={this.props.delTodoItem.bind(this, id)}
+          type="button"
+          className="nes-btn is-error"
+        >
+          ×
+        </button>
       </div>
     );
   }

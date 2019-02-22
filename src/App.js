@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
+import nanoid from 'nanoid';
 import 'nes.css/css/nes.css';
 import './App.css';
 
@@ -7,17 +9,17 @@ class App extends Component {
   state = {
     todos: [
       {
-        id: 1,
+        id: nanoid(),
         title: 'Take out the trash',
         completed: false
       },
       {
-        id: 2,
+        id: nanoid(),
         title: 'Dinner with wife',
         completed: false
       },
       {
-        id: 3,
+        id: nanoid(),
         title: 'Meeting with boss',
         completed: false
       }
@@ -35,11 +37,32 @@ class App extends Component {
     });
   };
 
+  delTodoItem = id => {
+    this.setState({
+      todos: [...this.state.todos.filter(todo => todo.id !== id)]
+    });
+  };
+
+  addTodo = title => {
+    const newTodo = {
+      id: nanoid(),
+      title,
+      completed: false
+    };
+
+    this.setState({ todos: [...this.state.todos, newTodo] });
+  };
+
   render() {
     return (
       <section className="nes-container with-title">
         <h2 className="title">ToDo List</h2>
-        <Todos todos={this.state.todos} markComplete={this.markComplete} />
+        <AddTodo addTodo={this.addTodo} />
+        <Todos
+          todos={this.state.todos}
+          markComplete={this.markComplete}
+          delTodoItem={this.delTodoItem}
+        />
       </section>
     );
   }

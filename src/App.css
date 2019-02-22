@@ -9,5 +9,16 @@
 }
 
 body {
-  padding: 0 1rem;
+  margin: 1em;
+}
+
+.todo-item,
+.add-todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-item label {
+  margin-bottom: 0;
 }
