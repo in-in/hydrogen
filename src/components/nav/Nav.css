@@ -1,0 +1,7 @@
+.nav {
+  display: grid;
+  grid-row-gap: 1rem;
+  grid-area: nav;
+  align-items: start;
+  align-content: start;
+}
