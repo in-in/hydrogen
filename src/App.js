@@ -5,29 +5,20 @@ import Todos from './components/Todos';
 import AddTodo from './components/addtodo/AddTodo';
 import About from './components/pages/About';
 import nanoid from 'nanoid';
+import axios from 'axios';
 import 'nes.css/css/nes.css';
 import './App.css';
 
 class App extends Component {
   state = {
-    todos: [
-      {
-        id: nanoid(),
-        title: 'Take out the trash',
-        completed: false
-      },
-      {
-        id: nanoid(),
-        title: 'Dinner with wife',
-        completed: true
-      },
-      {
-        id: nanoid(),
-        title: 'Meeting with boss',
-        completed: false
-      }
-    ]
+    todos: []
   };
+
+  componentDidMount() {
+    axios
+      .get('https://jsonplaceholder.typicode.com/todos?_limit=5')
+      .then(res => this.setState({ todos: res.data }));
+  }
 
   markComplete = id => {
     this.setState({
@@ -41,9 +32,11 @@ class App extends Component {
   };
 
   delTodoItem = id => {
-    this.setState({
-      todos: [...this.state.todos.filter(todo => todo.id !== id)]
-    });
+    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`).then(res =>
+      this.setState({
+        todos: [...this.state.todos.filter(todo => todo.id !== id)]
+      })
+    );
   };
 
   addTodo = title => {
