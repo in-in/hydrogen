@@ -1,0 +1,22 @@
+.add-todo {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-todo .nes-input {
+  border-image-outset: 1;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 480px) {
+  .add-todo {
+    display: grid;
+    grid-column-gap: 0.5rem;
+    grid-template-columns: 1fr auto;
+  }
+
+  .add-todo .nes-input {
+    margin-bottom: 0;
+  }
+}

@@ -5,10 +5,10 @@ import './Nav.css';
 export default function Nav() {
   return (
     <nav className="nav">
-      <Link to="/" className="nes-btn is-primary">
+      <Link to="/" className="nes-btn">
         Home
       </Link>
-      <Link to="/about" className="nes-btn is-primary">
+      <Link to="/about" className="nes-btn">
         About
       </Link>
     </nav>

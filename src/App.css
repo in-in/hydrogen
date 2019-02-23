@@ -8,28 +8,28 @@
     url('./fonts/press-start-2p-v7-latin-ext_latin-regular.woff') format('woff');
 }
 
-body {
-  margin: 1em;
+.main {
+  min-height: 100vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
 }
 
 .container {
   display: grid;
-  grid-column-gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas: 'nav list list list';
+  grid-template-columns: [sidebar] [content];
 }
 
-.todo-item,
-.add-todo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.sidebar {
+  grid-column: sidebar;
 }
 
-.todo-item label {
-  margin-bottom: 0;
+.content {
+  grid-column: content;
 }
 
-.list {
-  grid-area: list;
+@media (min-width: 480px) {
+  .container {
+    grid-column-gap: 1rem;
+    grid-template-columns: [sidebar] auto [content] 1fr;
+  }
 }

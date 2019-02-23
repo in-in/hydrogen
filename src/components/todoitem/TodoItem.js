@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './TodoItem.css';
 
 export default class TodoItem extends Component {
   render() {
@@ -24,7 +25,7 @@ export default class TodoItem extends Component {
         <button
           onClick={this.props.delTodoItem.bind(this, id)}
           type="button"
-          className="nes-btn is-error"
+          className="nes-btn is-error todo-item__btn-close"
         >
           ×
         </button>
