@@ -51,7 +51,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <main className="nes-container with-title main">
           <h1 className="title">ToDo List</h1>
           <div className="container">
